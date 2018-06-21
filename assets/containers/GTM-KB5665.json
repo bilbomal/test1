@@ -1,0 +1,943 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2017-12-27 00:38:48",
+  "containerVersion": {
+    "path": "accounts/328591/containers/1019550/versions/30",
+    "accountId": "328591",
+    "containerId": "1019550",
+    "containerVersionId": "30",
+    "name": "booking.com ab test",
+    "description": "- Update booking.com ab test variable\n- Remove onboarding ab test variable",
+    "container": {
+      "path": "accounts/328591/containers/1019550",
+      "accountId": "328591",
+      "containerId": "1019550",
+      "name": "Android App",
+      "publicId": "GTM-KB5665",
+      "usageContext": [
+        "ANDROID"
+      ],
+      "fingerprint": "1513984675700",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/328591/containers/1019550/workspaces?apiLink=container"
+    },
+    "tag": [
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "tagId": "3",
+        "name": "Active - Universal Analytics Event",
+        "type": "ua",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "nonInteraction",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventValue",
+            "value": "{{Event Value}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventCategory",
+            "value": "{{Event Category}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "trackType",
+            "value": "TRACK_EVENT"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "collectAdid",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventAction",
+            "value": "{{Event Action}}"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventLabel",
+            "value": "{{Event Label}}"
+          },
+          {
+            "type": "LIST",
+            "key": "dimension",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "index",
+                    "value": "3"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "dimension",
+                    "value": "{{Custom Dimension 3 - Optimizely AB Experiments}}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableEcommerce",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "trackingId",
+            "value": "{{Property ID}}"
+          }
+        ],
+        "fingerprint": "1477615314692",
+        "firingTriggerId": [
+          "6"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "tagId": "4",
+        "name": "Active - Universal Analytics Transaction",
+        "type": "ua",
+        "parameter": [
+          {
+            "type": "LIST",
+            "key": "fieldsToSet",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "fieldName",
+                    "value": "appName"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{app name}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "fieldName",
+                    "value": "appVersion"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{app version}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "fieldName",
+                    "value": "screenName"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{screen name}}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "trackType",
+            "value": "TRACK_TRANSACTION"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "collectAdid",
+            "value": "false"
+          },
+          {
+            "type": "LIST",
+            "key": "dimension",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "index",
+                    "value": "4"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "dimension",
+                    "value": "{{DL - drugID}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "index",
+                    "value": "6"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "dimension",
+                    "value": "{{DL - memberID}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "index",
+                    "value": "7"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "dimension",
+                    "value": "{{DL - rxBIN}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "index",
+                    "value": "8"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "dimension",
+                    "value": "{{DL - rxGroup}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "index",
+                    "value": "9"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "dimension",
+                    "value": "{{DL - rxPCN}}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "trackingId",
+            "value": "{{Property ID}}"
+          }
+        ],
+        "fingerprint": "1487717218070",
+        "firingTriggerId": [
+          "7"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "tagId": "2",
+        "name": "Open Screen",
+        "type": "ua",
+        "parameter": [
+          {
+            "type": "LIST",
+            "key": "fieldsToSet",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "fieldName",
+                    "value": "appName"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{app name}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "fieldName",
+                    "value": "appVersion"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{app version}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "fieldName",
+                    "value": "screenName"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{screen name}}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "collectAdid",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "trackType",
+            "value": "TRACK_APPVIEW"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "enableEcommerce",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "trackingId",
+            "value": "UA-24914838-7"
+          }
+        ],
+        "fingerprint": "1456936738598",
+        "firingTriggerId": [
+          "4"
+        ]
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "triggerId": "2",
+        "name": "Always",
+        "type": "ALWAYS",
+        "filter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{true}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "true"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1423701064878"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "triggerId": "6",
+        "name": "Event Tracker Trigger",
+        "type": "ALWAYS",
+        "filter": [
+          {
+            "type": "CONTAINS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "eventTracker"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1477615291806"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "triggerId": "4",
+        "name": "OpenScreenEvent",
+        "type": "ALWAYS",
+        "filter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "openScreen"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1456936622618"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "triggerId": "7",
+        "name": "Transaction Trigger",
+        "type": "ALWAYS",
+        "filter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "transaction"
+              }
+            ]
+          }
+        ],
+        "fingerprint": "1477615577265"
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "34",
+        "name": "Custom Dimension 3 - Optimizely AB Experiments",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "CustId3_OptimizelyAB_Experiments"
+          }
+        ],
+        "fingerprint": "1477615051365"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "36",
+        "name": "DL - drugID",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "drugID"
+          }
+        ],
+        "fingerprint": "1487716823131"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "37",
+        "name": "DL - memberID",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "memberID"
+          }
+        ],
+        "fingerprint": "1487716841735"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "38",
+        "name": "DL - rxBIN",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "rxBIN"
+          }
+        ],
+        "fingerprint": "1487716856875"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "39",
+        "name": "DL - rxGroup",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "rxGroup"
+          }
+        ],
+        "fingerprint": "1487716873705"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "40",
+        "name": "DL - rxPCN",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "rxPCN"
+          }
+        ],
+        "fingerprint": "1487716889207"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "31",
+        "name": "Event Action",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "eventAct"
+          }
+        ],
+        "fingerprint": "1477614846168"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "30",
+        "name": "Event Category",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "eventCat"
+          }
+        ],
+        "fingerprint": "1477614779753"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "32",
+        "name": "Event Label",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "eventLbl"
+          }
+        ],
+        "fingerprint": "1477614883534"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "33",
+        "name": "Event Value",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "eventVal"
+          }
+        ],
+        "fingerprint": "1477614909196"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "29",
+        "name": "Property ID",
+        "type": "c",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "value",
+            "value": "UA-24914838-7"
+          }
+        ],
+        "fingerprint": "1477614703155"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "10",
+        "name": "advertising tracking enabled",
+        "type": "ate",
+        "fingerprint": "1423701064877"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "11",
+        "name": "app id",
+        "type": "ai",
+        "fingerprint": "1423701064878"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "1",
+        "name": "app name",
+        "type": "an",
+        "fingerprint": "1423701064874"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "2",
+        "name": "app version",
+        "type": "av",
+        "fingerprint": "1423701064875"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "45",
+        "name": "booking.com ab test",
+        "type": "gae",
+        "scheduleStartMs": 1514793600000,
+        "scheduleEndMs": 1527840000000,
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "objectiveMetricId",
+            "value": "analytics.goal1Completions"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "endingVariation",
+            "value": "BEST_PERFORMING"
+          },
+          {
+            "type": "INTEGER",
+            "key": "minLength",
+            "value": "14"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "gaPropertyId",
+            "value": "112691890"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "objectiveOptimizationType",
+            "value": "MAXIMUM"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "gaTrackingId",
+            "value": "UA-24914838-7"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "gaAccountId",
+            "value": "24914838"
+          },
+          {
+            "type": "INTEGER",
+            "key": "trafficCoverage",
+            "value": "100"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "gaProfileId",
+            "value": "117674998"
+          },
+          {
+            "type": "LIST",
+            "key": "variations",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "name",
+                    "value": "Original"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "collection",
+                    "value": "{'booking':'booking_default'}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "name",
+                    "value": "Descriptive"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "collection",
+                    "value": "{'booking':'booking_descriptive'}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "objectiveMetricBackendName",
+            "value": "analytics.goal_completions_1"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "objectiveGoalId",
+            "value": "31213501"
+          },
+          {
+            "type": "INTEGER",
+            "key": "winnerConfidence",
+            "value": "950"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "uniformWeight",
+            "value": "true"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "objectiveGoalNumber",
+            "value": "1"
+          }
+        ],
+        "enablingTriggerId": [
+          "2"
+        ],
+        "fingerprint": "1514331112766"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "13",
+        "name": "device id",
+        "type": "did",
+        "fingerprint": "1423701064878"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "3",
+        "name": "device name",
+        "type": "dn",
+        "fingerprint": "1423701064875"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "12",
+        "name": "event",
+        "type": "e",
+        "fingerprint": "1423701064878"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "4",
+        "name": "language",
+        "type": "l",
+        "fingerprint": "1423701064875"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "5",
+        "name": "os version",
+        "type": "ov",
+        "fingerprint": "1423701064876"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "6",
+        "name": "platform",
+        "type": "p",
+        "fingerprint": "1423701064876"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "28",
+        "name": "screen name",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "true"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "defaultValue",
+            "value": "unknown screen"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "screenName"
+          }
+        ],
+        "fingerprint": "1456936573190"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "7",
+        "name": "screen resolution",
+        "type": "rs",
+        "fingerprint": "1423701064876"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "8",
+        "name": "sdk version",
+        "type": "sv",
+        "fingerprint": "1423701064877"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "variableId": "9",
+        "name": "true",
+        "type": "c",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "value",
+            "value": "true"
+          }
+        ],
+        "fingerprint": "1423701064877"
+      }
+    ],
+    "builtInVariable": [
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "type": "CONTAINER_VERSION",
+        "name": "Container Version"
+      },
+      {
+        "accountId": "328591",
+        "containerId": "1019550",
+        "type": "ADVERTISER_ID",
+        "name": "Advertiser ID"
+      }
+    ],
+    "fingerprint": "1514331166078",
+    "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/328591/containers/1019550/versions/30?apiLink=version"
+  }
+}

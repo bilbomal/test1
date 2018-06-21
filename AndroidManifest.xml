@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.goodrx">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.goodrx.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.goodrx.permission.C2D_MESSAGE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher_adaptive" android:label="@string/app_name" android:name="com.goodrx.GrxApplication" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="true" android:theme="@style/GrxAppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_bjyVEDwGoECULwjU7hzm5afnBuo4tfCE"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_hlxrWC5Zx16DkYmWu4AHiimdqugRYMr"/>
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/google_maps_key"/>
+        <service android:name="com.goodrx.service.NotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.goodrx.service.NotificationIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/ic_pill"/>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/yellow"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:name="com.goodrx.receiver.CouponNotificationReceiver"/>
+        <receiver android:name="com.goodrx.receiver.RefillReminderReceiver"/>
+        <receiver android:name="com.goodrx.receiver.WinbackNotificationReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:label="BootCompleteReceiver" android:name="com.goodrx.receiver.BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.ads.conversiontracking.InstallReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.taplytics.sdk.TLGcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="taplytics.push.OPEN"/>
+                <action android:name="taplytics.push.DISMISS"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.taplytics.sdk.TLGcmIntentService"/>
+        <provider android:authorities="com.goodrx.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:exported="true" android:label="@string/goodrx" android:name="com.goodrx.activity.main.MainActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarTheme" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tl-396b137d"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_welcome" android:launchMode="singleTop" android:name="com.goodrx.activity.WelcomeActivity" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.goodrx.com"/>
+                <data android:host="m.goodrx.com"/>
+                <data android:host="goodrx.com"/>
+                <data android:pathPattern="/"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="goodrx.onelink.me" android:pathPrefix="/1153955910" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="goodrx"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_internet_error" android:launchMode="singleTop" android:name="com.goodrx.activity.InternetErrorActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_server_error" android:launchMode="singleTop" android:name="com.goodrx.activity.ServerErrorActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_popular_drug" android:name="com.goodrx.activity.PopularDrugActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarThemeWhite"/>
+        <activity android:label="@string/title_activity_condition" android:name="com.goodrx.activity.ConditionActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_prescription_configure" android:name="com.goodrx.activity.configure.PrescriptionConfigureActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="goodrx.com" android:pathPattern="/drug/.*" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_price" android:name="com.goodrx.activity.price.PriceActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarThemeWhite">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.goodrx.com"/>
+                <data android:host="m.goodrx.com"/>
+                <data android:host="goodrx.com"/>
+                <data android:pathPattern="/.*/savings-tips"/>
+                <data android:pathPattern="/.*/what-is"/>
+                <data android:pathPattern="/.*/latest-news"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="" android:name="com.goodrx.activity.ConditionClassActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="goodrx.com" android:pathPattern="/condition/.*" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="" android:name="com.goodrx.activity.ClassDrugActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="goodrx.com" android:pathPattern="/class/.*" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_identifier_detail" android:name="com.goodrx.activity.IdentifierDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_web_view" android:name="com.goodrx.activity.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.goodrx.activity.ImagesActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.goodrx.com"/>
+                <data android:host="m.goodrx.com"/>
+                <data android:host="goodrx.com"/>
+                <data android:pathPattern="/.*/images"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_image_detail" android:name="com.goodrx.activity.ImageDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:name="com.goodrx.activity.store.StoreActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.goodrx.com"/>
+                <data android:host="m.goodrx.com"/>
+                <data android:host="goodrx.com"/>
+                <data android:pathPattern="/store/.*"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_map" android:name="com.goodrx.activity.MapActivity" android:screenOrientation="portrait" android:theme="@style/GrxAppTheme"/>
+        <activity android:label="@string/title_activity_store_detail" android:name="com.goodrx.activity.StoreDetailActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarThemeWhite"/>
+        <activity android:label="@string/title_activity_create_account" android:name="com.goodrx.activity.CreateAccountActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_sign_in" android:name="com.goodrx.activity.SignInActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_add_rx" android:name="com.goodrx.activity.AddRxActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarTheme"/>
+        <activity android:label="@string/title_activity_rx_edit" android:name="com.goodrx.activity.RxEditActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_best_pharmacy" android:name="com.goodrx.activity.BestPharmacyActivity" android:screenOrientation="portrait" android:theme="@style/GrxAppTheme.BestPharmacy"/>
+        <activity android:label="@string/title_activity_best_pharmacy_setting" android:name="com.goodrx.activity.BestPharmacySettingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_best_pharmacy_detail" android:name="com.goodrx.activity.BestPharmacyDetailActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarTheme"/>
+        <activity android:label="@string/title_activity_account_created" android:name="com.goodrx.activity.AccountCreatedActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_image_selector" android:name="com.goodrx.activity.ImageSelectorActivity" android:screenOrientation="portrait" android:theme="@style/ImageSelectorTheme"/>
+        <activity android:label="@string/title_activity_image_cropper" android:name="com.goodrx.activity.ImageCropperActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.google.android.gms.tagmanager.PreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.goodrx.welcomeactivity"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_preferred_pharmacy_selector" android:name="com.goodrx.activity.PreferredPharmacySelectorActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_medicare" android:name="com.goodrx.activity.MedicareActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_zip" android:name="com.goodrx.activity.ZipActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_plan" android:name="com.goodrx.activity.PlanActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_co_pay" android:name="com.goodrx.activity.CoPayActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_pass_code" android:launchMode="singleTop" android:name="com.goodrx.activity.passcode.PasscodeLockActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarThemeWhite"/>
+        <activity android:label="@string/title_activity_passcode_setting" android:name="com.goodrx.activity.passcode.PasscodeSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_pill_id" android:name="com.goodrx.activity.pillid.PillIdActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarTheme"/>
+        <activity android:label="@string/title_activity_search" android:name="com.goodrx.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarTheme"/>
+        <activity android:label="@string/title_activity_settings" android:name="com.goodrx.activity.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_html_displayer" android:name="com.goodrx.activity.StaticContentActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/about_goodrx" android:name="com.goodrx.activity.AboutActivity"/>
+        <activity android:label="@string/title_activity_system_lock" android:name="com.goodrx.activity.passcode.SystemLockActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarThemeWhite"/>
+        <activity android:label="@string/title_activity_savings_detail" android:name="com.goodrx.activity.SavingsDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_blog_detail" android:name="com.goodrx.activity.BlogDetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="www.goodrx.com"/>
+                <data android:host="m.goodrx.com"/>
+                <data android:host="goodrx.com"/>
+                <data android:pathPattern="/blog/.*"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_notice" android:name="com.goodrx.activity.price.NoticeListActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_notice_detail" android:name="com.goodrx.activity.price.NoticeDetailActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/title_activity_argus_sign_up" android:name="com.goodrx.activity.ArgusSignUpActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_argus_confirmation" android:name="com.goodrx.activity.ArgusConfirmationActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_esi_attestation" android:name="com.goodrx.activity.EsiAttestationActivity" android:screenOrientation="portrait" android:theme="@style/AppThemeWhite"/>
+        <activity android:label="@string/title_activity_esi_fail" android:name="com.goodrx.activity.EsiFailActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarThemeWhite"/>
+        <activity android:name="com.goodrx.activity.RegistrationActivity" android:screenOrientation="portrait" android:theme="@style/BlackStatusBarTheme"/>
+        <activity android:name="com.goodrx.activity.main.StartActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarTheme"/>
+        <activity android:name="com.goodrx.activity.PharmacySelectorActivity" android:screenOrientation="portrait" android:theme="@style/BlackStatusBarTheme"/>
+        <activity android:name="com.goodrx.activity.ScheduledAlarmsActivity" android:screenOrientation="portrait" android:theme="@style/ToolbarTheme"/>
+        <activity android:name="com.goodrx.android.util.testhelper.AnimationUtilsTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tl-396b137d"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="io.fabric.ApiKey" android:value="fb7f4c6e4f1eb86cefdf4e62b97a479890bbf21e"/>
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:exported="true" android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.com.goodrx"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <activity android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.google.firebase.auth.internal.FederatedSignInActivity" android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.goodrx"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.goodrx.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.facebook.FacebookActivity" android:theme="@style/com_facebook_activity_theme"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <provider android:authorities="com.goodrx.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.goodrx.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+    </application>
+</manifest>
